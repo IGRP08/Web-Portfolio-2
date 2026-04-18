@@ -1,0 +1,56 @@
+/* Contact.css */
+.contact-outer-card {
+    background: linear-gradient(135deg,
+            rgba(96, 100, 108, 0.28) 0%,
+            rgba(24, 51, 99, 0.70) 45%,
+            rgba(70, 78, 93, 0.28) 65%,
+            rgba(122, 122, 122, 0.10) 95%);
+    border: 1px solid rgba(184, 138, 68, 0.3);
+    border-radius: 20px;
+}
+
+.contact-form-container {
+    /* Using your specific Figma gradient */
+    background: linear-gradient(145deg, #121F3D 0%, #1a2b52 100%);
+    border-radius: 15px;
+    border: 1px solid rgba(176, 141, 87, 0.5);
+}
+
+.contact-input {
+    background: rgba(51, 77, 139, 0.3);
+    border: 1px solid rgba(51, 77, 139, 0.6);
+    border-radius: 5px;
+    color: white;
+    padding: 8px 12px;
+    width: 100%;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+.contact-input:focus {
+    border-color: #b88a44;
+}
+
+.btn-gold {
+    background: linear-gradient(to bottom, #b88a44 0%, #7a5a2a 100%);
+    color: white;
+    font-weight: 700;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.btn-gold:hover {
+    transform: scale(1.02);
+    opacity: 0.9;
+}
+
+.social-icon {
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.social-icon:hover {
+    transform: translateY(-5px);
+}

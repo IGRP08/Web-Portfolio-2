@@ -1,0 +1,16 @@
+{
+    "name": "my-fullstack-app",
+    "private": true,
+    "workspaces": [
+        "client",
+        "server"
+    ],
+    "scripts": {
+        "client": "yarn workspace client start",
+        "server": "yarn workspace server start",
+        "dev": "concurrently \"yarn client\" \"yarn server\""
+    },
+    "devDependencies": {
+        "concurrently": "^8.0.0"
+    }
+}

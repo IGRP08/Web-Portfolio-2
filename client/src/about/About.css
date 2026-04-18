@@ -1,0 +1,33 @@
+/* About.css */
+
+.about-container {
+    background: linear-gradient(to bottom,
+            #051331 0%,
+            #0a1735 50%,
+            #051331 100%);
+
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.4);
+
+    /* background-size: cover;
+    position: relative;
+    overflow: hidden; */
+
+    /* This creates the blue radial glow behind the person */
+    /* background-image: radial-gradient(circle at 85% 35%,
+            rgba(29, 78, 216, 0.25) 0%,
+            transparent 50%);
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden; */
+}
+
+/* The transparent fade effect for the portrait */
+.portrait-mask {
+    -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+    mask-image: linear-gradient(to bottom, black 75%, transparent 100%);
+}
+
+/* Optional: Subtle glow for the icons if you want to match the premium design */
+.gold-icon {
+    filter: drop-shadow(0 0 8px rgba(184, 138, 68, 0.3));
+}

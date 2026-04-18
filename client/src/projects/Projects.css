@@ -1,0 +1,41 @@
+/* Projects.css */
+
+.projects-container {
+    background: linear-gradient(135deg, #162446 0%, #0b1a33 20%, #1e2e58 80%, #0b1a33 100%);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+    border: 1px solid #B08D57;
+}
+
+.project-badge {
+    background: white;
+    color: #374151;
+    padding: 8px 16px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid #799AE9;
+}
+
+/* Styles the words wrapped in <span class="highlight"> in your array */
+.highlight {
+    color: #b88a44;
+    font-weight: 600;
+}
+
+/* Animation for switching projects */
+.projects-container img {
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,18 @@
+@import "tailwindcss";
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  background-color: #0F172A;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Offset for the fixed header so sections don't hide under it */
+section {
+  scroll-margin-top: 100px;
+}
