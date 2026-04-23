@@ -135,10 +135,10 @@ const Contact = () => {
                                         name="headache"
                                         className="contact-input appearance-none w-full pr-10"
                                     >
-                                        <option value="Technical Debt">Web Application</option>
-                                        <option value="Legacy Systems">Business Email Solution</option>
-                                        <option value="Slow Website">Domain Name (URL)</option>
-                                        <option value="Poor SEO">Google Search Positioning</option>
+                                        <option value="Web Application">Web Application</option>
+                                        <option value="Business Email Solution">Business Email Solution</option>
+                                        <option value="Domain Name">Domain Name (URL)</option>
+                                        <option value="Google Search Positioning">Google Search Positioning</option>
                                     </select>
 
                                     {/* Custom Gold Arrow Icon */}

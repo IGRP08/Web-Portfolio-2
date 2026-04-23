@@ -1,10 +1,7 @@
-import nodemailer from 'nodemailer';
-import validator from 'validator';
+const nodemailer = require('nodemailer');
+const validator = require('validator');
 
-export default async function handler(req, res) {
-    // 1. Log that the function was at least reached
-    console.log("API Triggered. Method:", req.method);
-
+module.exports = async function handler(req, res) {
     if (req.method !== 'POST') {
         return res.status(405).json({ error: 'Method not allowed' });
     }
@@ -12,20 +9,12 @@ export default async function handler(req, res) {
     try {
         const { name, email, message, company, headache } = req.body;
 
-        // 2. Validate existence
         if (!name || !email || !message) {
             return res.status(400).json({ error: 'Name, Email, and Message are required' });
         }
 
-        // 3. Validate Email format
         if (!validator.isEmail(email)) {
             return res.status(400).json({ error: 'Invalid email address' });
-        }
-
-        // 4. Check Environment Variables before trying to send
-        if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
-            console.error("CRITICAL ERROR: Environment variables are missing!");
-            return res.status(500).json({ error: 'Server configuration error (Keys missing)' });
         }
 
         const transporter = nodemailer.createTransport({
@@ -36,19 +25,38 @@ export default async function handler(req, res) {
             },
         });
 
+        // This is the part that structures the email look
+        const emailHtml = `
+            <div style="font-family: Arial, sans-serif; max-width: 600px; color: #333; line-height: 1.6;">
+                <h2 style="color: #000; border-bottom: 2px solid #eee; padding-bottom: 10px;">New Portfolio Message</h2>
+                
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Email:</strong> <a href="mailto:${email}">${email}</a></p>
+                <p><strong>Company:</strong> ${company || 'Not provided'}</p>
+                <p><strong>Primary Headache:</strong> ${headache || 'None specified'}</p>
+                
+                <div style="margin-top: 20px; padding: 15px; background-color: #f9f9f9; border-radius: 5px; border-left: 4px solid #ccc;">
+                    <p style="margin-top: 0;"><strong>Message:</strong></p>
+                    <p style="white-space: pre-wrap;">${message}</p>
+                </div>
+                
+                <footer style="margin-top: 20px; font-size: 12px; color: #777; border-top: 1px solid #eee; padding-top: 10px;">
+                    This inquiry was sent from your portfolio contact form.
+                </footer>
+            </div>
+        `;
+
         await transporter.sendMail({
             from: `"${name}" <${process.env.EMAIL_USER}>`,
             to: process.env.RECEIVER_EMAIL,
             replyTo: email,
             subject: `Portfolio Inquiry: ${headache || 'New Message'}`,
-            html: `<p>New Message from ${name}</p><p>${message}</p>`,
+            html: emailHtml, // We use the new structured HTML here
         });
 
-        console.log("Email sent successfully!");
         return res.status(200).json({ success: true });
 
     } catch (error) {
-        // This catch block prevents the "Invocation Failed" screen and shows the error in the terminal
         console.error("FULL ERROR LOG:", error);
         return res.status(500).json({ error: 'Internal Server Error', details: error.message });
     }
