@@ -2,16 +2,11 @@
     "name": "web-portfolio-2",
     "private": true,
     "workspaces": [
-        "client",
-        "server"
+        "client"
     ],
     "scripts": {
-        "client": "yarn workspace client dev",
-        "server": "yarn workspace server dev",
-        "dev": "concurrently \"yarn client\" \"yarn server\""
-    },
-    "devDependencies": {
-        "concurrently": "^8.0.0"
+        "start-dev": "vercel dev",
+        "build": "yarn workspace client build"
     },
     "dependencies": {
         "nodemailer": "^8.0.5",
