@@ -10,6 +10,15 @@ const projectsData = [
         laptopImg: "/assets/makarios-laptop.png",
         phoneImg: "/assets/makarios-mobile.png",
         badges: [{ icon: "/assets/performance-icon.png", text: "98/100" }, { icon: "/assets/responsive-icon.png", text: "Mobile-First" }, { icon: "/assets/tools-icon.png", text: "Vite + Tailwind" }]
+    },
+
+    {
+        id: 2,
+        title: "Best Friend Veterinary Clinic",
+        description: "Designed a responsive, <span class='highlight'>user-friendly</span> landing page for a modern veterinary clinic using HTML, CSS, JavaScript, and Bootstrap. The site features an intuitive appointment booking form, a clear services overview, and a personalized team section. The design emphasizes building <span class='highlight'>trust and streamlining</span> the onboarding process for new clients across all devices.",
+        laptopImg: "/assets/bestFriend-laptop.png",
+        phoneImg: "/assets/bestFriend-mobile.png",
+        badges: [{ icon: "/assets/performance-icon.png", text: "98/100" }, { icon: "/assets/responsive-icon.png", text: "Mobile-First" }, { icon: "/assets/tools-icon.png", text: "HTML + CSS + JS" }]
     }
 
 ];
@@ -64,7 +73,7 @@ const Projects = () => {
                             initial="enter"
                             animate="center"
                             exit="exit"
-                            transition={{ x: { type: "spring", stiffness: 300, damping: 30 }, opacity: { duration: 0.3 } }}
+                            transition={{ x: { type: "spring", stiffness: 200, damping: 30 }, opacity: { duration: 0.2 } }}
                             drag="x"
                             dragConstraints={{ left: 0, right: 0 }}
                             dragElastic={1}
@@ -96,8 +105,8 @@ const Projects = () => {
 
                             {/* MOCKUPS RIGHT */}
                             <div className="relative flex justify-center items-center h-[250px] md:h-[350px] select-none pointer-events-none">
-                                <img src={current.laptopImg} className="w-[130%] lg:w-[130%] h-auto z-10 drop-shadow-2xl" alt="" />
-                                <img src={current.phoneImg} className="absolute right-[-15px] bottom-[25px] lg:right-[-26px] lg:bottom-[-15px] w-[130px] md:w-[270px] z-20 drop-shadow-2xl" alt="" />
+                                <img src={current.laptopImg} className="w-full lg:w-full  h-auto z-10 drop-shadow-2xl object-contain " alt="" />
+                                <img src={current.phoneImg} className="absolute right-[-15px] bottom-[25px] lg:right-[-80px] lg:bottom-[-40px] w-[130px] lg:w-[50%] z-20 drop-shadow-2xl" alt="" />
                             </div>
                         </motion.div>
                     </AnimatePresence>
